@@ -4,6 +4,7 @@ services:
 
   master_db:
     image: postgres:16.0-alpine3.18
+    container_name: master_db
     restart: always
     environment:
       POSTGRES_PASSWORD: example
@@ -12,6 +13,7 @@ services:
 
   slave_db:
     image: postgres:16.0-alpine3.18
+    container_name: slave_db
     restart: always
     environment:
       POSTGRES_PASSWORD: example

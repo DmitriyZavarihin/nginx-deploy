@@ -12,8 +12,8 @@ services:
       - 5431:5432
     volumes:
       - postgres_db_master:/var/lib/postgresql/data/
-#    networks:
-#      - webnet
+    networks:
+      - webnet
 
   slave_db:
     image: postgres:16.0-alpine3.18
@@ -25,12 +25,14 @@ services:
       - 5430:5432
     volumes:
       - postgres_db_slave:/var/lib/postgresql/data/
-#    networks:
-#     - webnet
+    networks:
+      - webnet
+      
 volumes:
   postgres_db_master:
   postgres_db_slave:
+  
 networks:
-  default:
+  webnet:
     driver: bridge
     name: webnet

@@ -2,7 +2,7 @@ version: '3.1'
 
 services:
 
-  db1:
+  master_db:
     image: postgres:16.0-alpine3.18
     restart: always
     environment:
@@ -10,7 +10,7 @@ services:
     ports:
       - "5431:5432"
 
-  db2:
+  slave_db:
     image: postgres:16.0-alpine3.18
     restart: always
     environment:

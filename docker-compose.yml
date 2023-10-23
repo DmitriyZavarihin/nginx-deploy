@@ -10,6 +10,8 @@ services:
       POSTGRES_PASSWORD: example
     ports:
       - "5431:5432"
+    networks:
+      - webnet
 
   slave_db:
     image: postgres:16.0-alpine3.18
@@ -19,6 +21,8 @@ services:
       POSTGRES_PASSWORD: example
     ports:
       - "5430:5432"
+    networks:
+      - webnet
 
 networks:
   default:

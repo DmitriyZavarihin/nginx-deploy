@@ -9,7 +9,9 @@ services:
     environment:
       POSTGRES_PASSWORD: example
     ports:
-      - "5431:5432"
+      - 5431:5432
+    volumes:
+      - postgres_db_master:/var/lib/postgresql/data/
 #    networks:
 #      - webnet
 
@@ -20,10 +22,14 @@ services:
     environment:
       POSTGRES_PASSWORD: example
     ports:
-      - "5430:5432"
+      - 5430:5432
+    volumes:
+      - postgres_db_slave:/var/lib/postgresql/data/
 #    networks:
 #     - webnet
-
+volumes:
+  postgres_db_master:
+  postgres_db_slave:
 networks:
   default:
     driver: bridge
